@@ -1,43 +1,45 @@
 import java.util.*;
-public class Student{
+
+public class Student {
     Scanner sc = new Scanner(System.in);
-    int rollno,grade;
+    int rollno, grade;
     String address, dob, name;
     float percentage;
-    public Student(int rollno, String name, String address, int grade, String dob, float percentage){
+
+    public Student(int rollno, String name, String address, int grade, String dob, float percentage) {
         this.rollno = rollno;
         this.name = name;
         this.address = address;
         this.grade = grade;
-        this.dob = dob; 
+        this.dob = dob;
         this.percentage = percentage;
     }
-    
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getRno(){
+    public int getRno() {
         return rollno;
     }
 
-    public void setRno(int rollno){
-        this.rollno =rollno;
+    public void setRno(int rollno) {
+        this.rollno = rollno;
     }
-    
-    public String getAddress(){
+
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address){
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public int getGrade(){
+    public int getGrade() {
         return grade;
     }
 
@@ -60,9 +62,9 @@ public class Student{
     public void setPercentage(float percentage) {
         this.percentage = percentage;
     }
-    
-    public void recalcPercentage(int rollno){
-        System.out.println("lets recalculate the percentage for rollno "+ rollno);
+
+    public void recalcPercentage(int rollno) {
+        System.out.println("lets recalculate the percentage for rollno " + rollno);
         System.out.println("Enter the math marks:");
         int math = sc.nextInt();
         System.out.println("Enter the social marks:");
@@ -73,18 +75,13 @@ public class Student{
         int sci = sc.nextInt();
         System.out.println("Enter the fmm marks:");
         int fmm = sc.nextInt();
-        float percent = (math+soc+eng+sci+fmm)/5;
+        float percent = (math + soc + eng + sci + fmm) / 5;
         sc.nextLine();
         System.out.println("Do you want save the recalculated percentage? (Y/N)");
         String ch = sc.nextLine();
-        if (ch == "Y"){
+        if (ch == "Y") {
             setPercentage(percent);
             System.out.println("Recalculated percentade updated successfully.");
         }
-    }
-}
-public class StudentDetails{
-    public static void main(String[]args){
-
     }
 }
