@@ -1,18 +1,19 @@
 import java.util.*;
 public class StudentDetails{
     public static int n;
-    public static Student[] s = new Student[n];
+    public static Student[] s;
     public static void main(String[]args){
        Student s1 =  new Student(1,"lakshmi", "a-1703 aparna sarovar grande", 10, "13-11-2010", 95.2f);
        Scanner sc = new Scanner(System.in);
-       System.out.println("Enter the function you would like to perform:- \n1. Add student details.\n2.Modify a student's details.\n3.Calculate percentage\n4.Display everything.");
+       boolean flag = true;
+       while(flag){
+       System.out.println("Enter the function you would like to perform:- \n1. Add student details.\n2.Modify a student's details.\n3.Calculate percentage\n4.Display everything.\npress 0 to quit.");
        int ch = sc.nextInt();
        if (ch == 1){
         System.out.println("Enter the no.of students you would like to add");
         n = sc.nextInt();
-        System.out.println(s[0]);
+        s = new Student[n];
         for(int i = 0; i<n; i++){
-            System.out.println(i);
                 System.out.println("enter student"+i+"s rollno.");
                 int rno= sc.nextInt();
                 sc.nextLine();
@@ -27,7 +28,8 @@ public class StudentDetails{
                 String dob = sc.nextLine();
                 System.out.println("enter student" + i + "s marks percentage");
                 Float percent = sc.nextFloat();
-                s[i] = new Student(rno, nme, adr, grd, dob, percent);            
+                s[i] = new Student(rno, nme, adr, grd, dob, percent);
+                System.out.println(s[i]);            
         }
     }
     else if(ch == 2){
@@ -63,12 +65,25 @@ public class StudentDetails{
             }
         }
         else{
+            
             System.out.println("Invalid Input");
         }
         
     }
-    else if(ch ==3){
-
+    else if (ch == 3) {
+        System.out.println("Enter the rollno. of the student(whose percentage is to be recalculated)");
+        int r = sc.nextInt();
+        for (int j = 1; j <= n; j++) {
+            if (s[j].rollno == r) {
+                Student.recalcPercentage(r);
+                if (s[j].percentage >= 98.0) {
+                    System.out.println("achieved distinction!!!");
+                }
+            }
+        }
+    }
+    else if(ch==0){
+        flag = false;
     }
 }
-}
+}}

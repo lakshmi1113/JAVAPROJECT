@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class Student {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     int rollno, grade;
     String address, dob, name;
-    float percentage;
+    static float percentage;
 
     public Student(int rollno, String name, String address, int grade, String dob, float percentage) {
         this.rollno = rollno;
@@ -59,11 +59,11 @@ public class Student {
         return percentage;
     }
 
-    public void setPercentage(float percentage) {
-        this.percentage = percentage;
+    public static void setPercentage(float percentage1) {
+        percentage = percentage1;
     }
 
-    public void recalcPercentage(int rollno) {
+    public static void recalcPercentage(int rollno) {
         System.out.println("lets recalculate the percentage for rollno " + rollno);
         System.out.println("Enter the math marks:");
         int math = sc.nextInt();
